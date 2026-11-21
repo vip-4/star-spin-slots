@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>星耀拉霸 Star Spin｜輕量 HTML5 老虎機遊戲（虛擬幣休閒版）</title>
+  <meta name="description" content="星耀拉霸是一款純靜態 HTML5 老虎機遊戲，使用 Canvas 2D 與原生 JavaScript 製作，無需後端、無外部資源，支援手機與桌機。提供完整玩法說明、符號賠率表與常見問題，適合娛樂休閒體驗。">
+  <meta name="keywords" content="老虎機,拉霸,slot machine,HTML5 遊戲,Canvas 遊戲,靜態遊戲,虛擬幣,休閒博弈,Casino H5,開源遊戲">
+  <meta name="author" content="Star Spin 開發團隊">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <meta name="theme-color" content="#f7f5ef">
+  <meta name="color-scheme" content="light">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+
+  <!-- 正規網址：部署完成後替換為正式網域 -->
+  <link rel="canonical" href="https://vip-4.github.io/star-spin-slots/">
+
+  <!-- Open Graph：供 Facebook / LINE / LinkedIn 等社群平台讀取 -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="星耀拉霸 Star Spin">
+  <meta property="og:locale" content="zh_TW">
+  <meta property="og:title" content="星耀拉霸 Star Spin｜輕量 HTML5 老虎機遊戲">
+  <meta property="og:description" content="純靜態、零外部資源的 Canvas 老虎機。立即在瀏覽器 spin 一把，使用虛擬幣遊玩，免註冊、免下載。">
+  <meta property="og:url" content="https://vip-4.github.io/star-spin-slots/">
+  <meta property="og:image" content="https://vip-4.github.io/star-spin-slots/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="星耀拉霸 Star Spin 遊戲介面預覽，三個轉輪與櫻桃、鑽石、幸運 7 符號">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="星耀拉霸 Star Spin｜輕量 HTML5 老虎機遊戲">
+  <meta name="twitter:description" content="純靜態 Canvas 老虎機，支援手機與桌機，使用虛擬幣遊玩。">
+  <meta name="twitter:image" content="https://vip-4.github.io/star-spin-slots/og-image.png">
+  <meta name="twitter:image:alt" content="星耀拉霸 Star Spin 遊戲介面預覽">
+
+  <!-- GEO：提供生成式引擎可讀取的純文字摘要入口 -->
+  <link rel="alternate" type="text/plain" href="/llms.txt" title="星耀拉霸 LLM 友善摘要">
+
+  <!-- favicon 使用內嵌 SVG，避免額外請求 -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231b2a4a'/%3E%3Ccircle cx='32' cy='32' r='18' fill='%23f5c451'/%3E%3Ctext x='32' y='41' font-size='26' text-anchor='middle' fill='%231b2a4a'%3E7%3C/text%3E%3C/svg%3E">
+  <link rel="preload" href="css/style.css" as="style">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/game.js" defer></script>
+
+  <!-- 結構化資料：網站與應用程式中繼資料 -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://vip-4.github.io/star-spin-slots/#website",
+        "url": "https://vip-4.github.io/star-spin-slots/",
+        "name": "星耀拉霸 Star Spin",
+        "inLanguage": "zh-Hant",
+        "description": "輕量級 HTML5 老虎機遊戲首頁，提供遊戲介紹、玩法說明與常見問題。",
+        "publisher": { "@id": "https://vip-4.github.io/star-spin-slots/#organization" }
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://vip-4.github.io/star-spin-slots/#organization",
+        "name": "Star Spin 開發團隊",
+        "url": "https://vip-4.github.io/star-spin-slots/"
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://vip-4.github.io/star-spin-slots/#webpage",
+        "url": "https://vip-4.github.io/star-spin-slots/",
+        "name": "星耀拉霸 Star Spin｜輕量 HTML5 老虎機遊戲（虛擬幣休閒版）",
+        "isPartOf": { "@id": "https://vip-4.github.io/star-spin-slots/#website" },
+        "inLanguage": "zh-Hant",
+        "about": { "@id": "https://vip-4.github.io/star-spin-slots/#game" }
+      },
+      {
+        "@type": "GameApplication",
+        "@id": "https://vip-4.github.io/star-spin-slots/#game",
+        "name": "星耀拉霸 Star Spin",
+        "description": "純靜態 HTML5 三轉輪老虎機，使用 Canvas 2D 與原生 JavaScript 製作，以虛擬幣進行休閒遊玩，不涉及現金投注或兌換。",
+        "url": "https://vip-4.github.io/star-spin-slots/",
+        "applicationCategory": "GameApplication",
+        "operatingSystem": "任何支援 HTML5 的瀏覽器",
+        "browserRequirements": "需支援 Canvas 2D 與 ES2018 以上的瀏覽器",
+        "isAccessibleForFree": true,
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "TWD",
+          "description": "免費遊玩，使用虛擬幣"
+        },
+        "featureList": [
+          "Canvas 2D 即時渲染",
+          "響應式 RWD 版面",
+          "Web Audio 音效（可靜音）",
+          "鍵盤可操作的無障礙控制項",
+          "純靜態托管，無需後端"
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://vip-4.github.io/star-spin-slots/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "星耀拉霸需要註冊或充值嗎？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "不需要。星耀拉霸是純前端的休閒示範遊戲，開啟網頁即可遊玩。遊戲中使用的是虛擬幣，僅用於顯示分數變化，不能充值、提領或兌換現金與任何有價物品。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "如何判斷是否中獎？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "每次轉動會停止三個轉輪。當中間支付線上的三個符號相同即為中獎，賠率依照符號而定：幸運 7 為 80 倍、鑽石為 40 倍、鐘聲為 25 倍、檸檬為 15 倍、櫻桃為 10 倍。中獎金額會自動加到虛擬幣餘額。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "這款遊戲可以在手機上玩嗎？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "可以。介面採用響應式設計，並針對觸控操作與高 DPI 螢幕做調整；在直式與橫式畫面下都會自動縮放。音效必須由使用者首次點擊或觸控後才會解鎖，這符合 iOS Safari 與多數行動瀏覽器的限制。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "遊戲結果是怎麼產生的？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "此示範版本使用瀏覽器的 crypto.getRandomValues 產生加權隨機結果，所有運算都在前端完成，僅供娛樂展示。若用於正式營運，必須把隨機數生成、下注與派彩結算移到伺服器端，前端只負責呈動畫，以確保公平性並防止竄改。"
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#game-section">跳至遊戲區</a>
+
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="#top" aria-label="星耀拉霸首頁">
+        <span class="brand-mark" aria-hidden="true">7</span>
+        <span class="brand-text">星耀拉霸 <small>Star Spin</small></span>
+      </a>
+      <nav aria-label="主要導覽">
+        <ul class="nav-list">
+          <li><a href="#features">遊戲特色</a></li>
+          <li><a href="#how-to">玩法說明</a></li>
+          <li><a href="#faq">常見問題</a></li>
+          <li><a href="/llms.txt">LLM 摘要</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top" class="wrap">
+    <!-- 摘要區：提供爬蟲與生成式引擎可直接擷取的精簡定義 -->
+    <section class="hero" aria-labelledby="page-title">
+      <p class="eyebrow">輕量 · 純靜態 · 立即遊玩</p>
+      <h1 id="page-title">星耀拉霸 Star Spin：在瀏覽器裡玩一款 HTML5 老虎機</h1>
+      <p class="lead">
+        星耀拉霸是一款以原生 JavaScript 與 Canvas 2D 製作的三轉輪老虎機遊戲。
+        它不需要後端、資料庫或任何第三方套件，下載體積小，能直接部署在靜態托管平台；
+        玩家使用虛擬幣遊玩，適合用來展示 H5 遊戲的渲染、動畫與互動設計。
+      </p>
+      <dl class="fact-list" aria-label="遊戲重點摘要">
+        <div><dt>遊戲類型</dt><dd>三轉輪老虎機（休閒娛樂）</dd></div>
+        <div><dt>技術</dt><dd>HTML5 Canvas 2D、ES6+ JavaScript</dd></div>
+        <div><dt>付費模式</dt><dd>免費，虛擬幣不可兌現</dd></div>
+        <div><dt>裝置支援</dt><dd>桌機與手機瀏覽器</dd></div>
+      </dl>
+    </section>
+
+    <!-- 遊戲區 -->
+    <section id="game-section" class="game-section" aria-labelledby="game-heading">
+      <div class="section-heading">
+        <h2 id="game-heading">開始轉動</h2>
+        <p>選擇注額後按下「旋轉」，或直接按空白鍵。結果僅為娛樂用途。</p>
+      </div>
+
+      <article class="game-card" aria-label="星耀拉霸遊戲介面">
+        <div class="hud" aria-label="遊戲狀態">
+          <div class="hud-item">
+            <span class="hud-label">虛擬幣餘額</span>
+            <output id="credits" class="hud-value" aria-live="off">1,000</output>
+          </div>
+          <div class="hud-item">
+            <span class="hud-label">目前注額</span>
+            <output id="bet" class="hud-value">10</output>
+          </div>
+          <div class="hud-item">
+            <span class="hud-label">上次結果</span>
+            <output id="last-result" class="hud-value hud-value--small">準備好了</output>
+          </div>
+        </div>
+
+        <div class="canvas-frame">
+          <canvas id="slot-canvas" width="720" height="360" role="img"
+                  aria-label="老虎機轉輪，目前尚未旋轉"></canvas>
+        </div>
+
+        <div class="controls">
+          <fieldset class="bet-group">
+            <legend>選擇注額</legend>
+            <button type="button" class="bet-button" data-bet="10" aria-pressed="true">10</button>
+            <button type="button" class="bet-button" data-bet="25" aria-pressed="false">25</button>
+            <button type="button" class="bet-button" data-bet="50" aria-pressed="false">50</button>
+          </fieldset>
+          <button type="button" id="spin-button" class="spin-button">旋轉（空白鍵）</button>
+          <div class="utility-buttons">
+            <button type="button" id="sound-button" class="utility-button" aria-pressed="false" aria-label="開啟音效">🔇 音效</button>
+            <button type="button" id="reset-button" class="utility-button">重置虛擬幣</button>
+          </div>
+        </div>
+
+        <!-- 螢幕閱讀器專用即時通知：不干擾視覺畫面 -->
+        <p id="live-region" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></p>
+        <noscript>
+          <p class="noscript-note">此遊戲需要 JavaScript 才能運作。上方文字說明仍可正常閱讀。</p>
+        </noscript>
+      </article>
+    </section>
+
+    <!-- 特色區：語意化且有標題層級的文字內容，利於索引與 AI 摘要 -->
+    <section id="features" class="content-section" aria-labelledby="features-heading">
+      <div class="section-heading">
+        <h2 id="features-heading">為什麼選擇純靜態 H5 老虎機</h2>
+        <p>相較於需要伺服器與打包工具的方案，靜態架構在部署、效能與維護上都有明確優勢。</p>
+      </div>
+      <div class="card-grid">
+        <article class="info-card">
+          <h3>載入速度快</h3>
+          <p>遊戲圖形全部由 Canvas 即時繪製，沒有圖片精靈圖、字型檔或外部套件請求。首屏只需 HTML、CSS 與一支 JavaScript 檔，適合網路環境較慢的行動裝置。</p>
+        </article>
+        <article class="info-card">
+          <h3>跨平台相容</h3>
+          <p>使用標準 Canvas 2D 與 Web Animations 概念，搭配請求動畫影格與裝置像素比調整，可在 iOS Safari、Android Chrome 與桌機瀏覽器維持流暢表現。</p>
+        </article>
+        <article class="info-card">
+          <h3>無障礙優先</h3>
+          <p>所有控制項都是真正的按鈕，可用鍵盤操作；轉輪結果透過 ARIA 即時區域播報，並支援「減少動態效果」偏好設定。</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- 玩法說明 -->
+    <section id="how-to" class="content-section" aria-labelledby="howto-heading">
+      <div class="section-heading">
+        <h2 id="howto-heading">玩法與賠率</h2>
+        <p>規則設計為單一支付線，方便新玩家理解，也利於搜尋引擎擷取結構化內容。</p>
+      </div>
+      <ol class="steps">
+        <li><strong>選擇注額。</strong>可選 10、25 或 50 虛擬幣，餘額不足時無法旋轉。</li>
+        <li><strong>啟動轉輪。</strong>點擊旋轉按鈕或按空白鍵；轉輪會先加速滾動再依序減速停止。</li>
+        <li><strong>查看結果。</strong>中間支付線三個符號相同即中獎，彩金自動加入餘額。</li>
+        <li><strong>繼續或重置。</strong>可隨時切換注額；想重新開始時，使用重置按鈕回復初始虛擬幣。</li>
+      </ol>
+
+      <h3>符號賠率表</h3>
+      <div class="table-wrap">
+        <table class="paytable">
+          <caption>單一支付線、三個相同符號的賠率</caption>
+          <thead>
+            <tr><th scope="col">符號</th><th scope="col">名稱</th><th scope="col">賠率</th></tr>
+          </thead>
+          <tbody>
+            <tr><td aria-hidden="true">7</td><td>幸運 7</td><td>80 倍</td></tr>
+            <tr><td aria-hidden="true">◆</td><td>鑽石</td><td>40 倍</td></tr>
+            <tr><td aria-hidden="true">🔔</td><td>鐘聲</td><td>25 倍</td></tr>
+            <tr><td aria-hidden="true">🍋</td><td>檸檬</td><td>15 倍</td></tr>
+            <tr><td aria-hidden="true">🍒</td><td>櫻桃</td><td>10 倍</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- FAQ：與 JSON-LD 內容保持一致，供使用者與 AI 同時引用 -->
+    <section id="faq" class="content-section" aria-labelledby="faq-heading">
+      <div class="section-heading">
+        <h2 id="faq-heading">常見問題</h2>
+        <p>以下問答同時以結構化資料標記，方便搜尋引擎與生成式引擎摘要引用。</p>
+      </div>
+      <div class="faq-list">
+        <details>
+          <summary>星耀拉霸需要註冊或充值嗎？</summary>
+          <p>不需要。星耀拉霸是純前端的休閒示範遊戲，開啟網頁即可遊玩。遊戲中使用的是虛擬幣，僅用於顯示分數變化，不能充值、提領或兌換現金與任何有價物品。</p>
+        </details>
+        <details>
+          <summary>如何判斷是否中獎？</summary>
+          <p>每次轉動會停止三個轉輪。當中間支付線上的三個符號相同即為中獎，賠率依照符號而定：幸運 7 為 80 倍、鑽石為 40 倍、鐘聲為 25 倍、檸檬為 15 倍、櫻桃為 10 倍。中獎金額會自動加到虛擬幣餘額。</p>
+        </details>
+        <details>
+          <summary>這款遊戲可以在手機上玩嗎？</summary>
+          <p>可以。介面採用響應式設計，並針對觸控操作與高 DPI 螢幕做調整；在直式與橫式畫面下都會自動縮放。音效必須由使用者首次點擊或觸控後才會解鎖，這符合 iOS Safari 與多數行動瀏覽器的限制。</p>
+        </details>
+        <details>
+          <summary>遊戲結果是怎麼產生的？</summary>
+          <p>此示範版本使用瀏覽器的 crypto.getRandomValues 產生加權隨機結果，所有運算都在前端完成，僅供娛樂展示。若用於正式營運，必須把隨機數生成、下注與派彩結算移到伺服器端，前端只負責呈現動畫，以確保公平性並防止竄改。</p>
+        </details>
+      </div>
+    </section>
+
+    <aside class="tech-aside" aria-labelledby="tech-heading">
+      <h2 id="tech-heading">技術摘要</h2>
+      <dl>
+        <dt>渲染</dt><dd>Canvas 2D，依 devicePixelRatio 縮放</dd>
+        <dt>音效</dt><dd>Web Audio API 即時合成，首次操作後解鎖</dd>
+        <dt>狀態機</dt><dd>IDLE → SPINNING → STOPPING → EVALUATING</dd>
+        <dt>隨機數</dt><dd>crypto.getRandomValues 加權抽樣</dd>
+        <dt>托管</dt><dd>純靜態檔案，可直接放置 CDN 或靜態空間</dd>
+      </dl>
+    </aside>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <p><strong>免責聲明：</strong>本網站僅供娛樂與技術展示，所有點數皆為虛擬幣，不具現金價值，不得兌換現金或任何有價物品。未滿 18 歲請勿使用。</p>
+      <p>遊戲設計參考 <a href="https://github.com/johakr/html5-slot-machine" rel="noopener noreferrer">johakr/html5-slot-machine</a>（MIT License, Copyright © 2017 Johannes Kronmüller），本版本為重新實作的 Canvas 版本。</p>
+      <p><a href="/llms.txt">LLM 友善摘要</a> · <a href="/sitemap.xml">網站地圖</a></p>
+    </div>
+  </footer>
+</body>
+</html>
