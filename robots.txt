@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# 允許所有爬蟲索引；若上線後需要調整，再針對特定爬蟲增設規則
+Sitemap: https://vip-4.github.io/star-spin-slots/sitemap.xml
