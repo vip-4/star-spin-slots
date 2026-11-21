@@ -102,7 +102,7 @@ CF_ACCOUNT_ID=<你的帳號 ID> CF_PROJECT_NAME=star-spin-slots CF_API_TOKEN=<�
 
 此腳本不使用 Wrangler，直接呼叫 Pages REST API，並處理三個容易踩坑的細節：
 BLAKE3 雜湊、`pages/assets/upsert-hashes` 註冊、manifest 路徑需帶前導斜線。
-`_headers` 已設定安全標頭與靜態資源快取；本專案不需要 R2 或資料庫。
+`_headers` 是 Cloudflare Pages 的安全標頭與快取設定；GitHub Pages 不會讀取它，但保留檔案不影響站台。本專案不需要 R2 或資料庫。
 
 GitHub Pages 部署（使用 Contents API，不需本機 git 憑證）：
 
