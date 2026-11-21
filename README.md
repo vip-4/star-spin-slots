@@ -39,7 +39,8 @@ casino-static/
     ├── make_og.py           # 重新產生 og-image.png 的腳本
     ├── smoke-test.js        # 不需瀏覽器的狀態機煙測
     ├── cloudflare_pages_deploy.py  # Cloudflare Pages Direct Upload 部署腳本
-    └── github_pages_deploy.py      # GitHub Pages Contents API 部署腳本
+    ├── github_pages_deploy.py      # GitHub Pages Contents API 部署腳本
+    └── gitee_atomgit_sync.py       # Gitee / AtomGit 原始碼同步腳本
 ```
 
 本機驗證指令：
@@ -111,6 +112,18 @@ cd casino-static
 GH_TOKEN=<你的 GitHub Token> GH_REPO=star-spin-slots \
   python tools/github_pages_deploy.py
 ```
+
+原始碼同步備份（Gitee / AtomGit）：
+
+```bash
+GITEE_TOKEN=<你的 Gitee Token> ATOMGIT_TOKEN=<你的 AtomGit Token> \
+  python tools/gitee_atomgit_sync.py
+```
+
+倉庫位置：
+- GitHub：https://github.com/vip-4/star-spin-slots
+- Gitee：https://gitee.com/vip882/star-spin-slots
+- AtomGit：https://atomgit.com/zzw1208/star-spin-slots
 
 目前網址已替換為 GitHub Pages 網域 `https://vip-4.github.io/star-spin-slots/`。若之後綁定自訂網域，請把以下檔案中的網址換成正式網域：
 
